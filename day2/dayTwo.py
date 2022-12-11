@@ -1,7 +1,7 @@
 """
-# A = Rock 1
-# B = Paper 2
-# C = Scissors 3
+# A X = Rock 1
+# B  Y = Paper 2
+# C  Z = Scissors 3
 # Lose = 0
 # Draw = 3
 # Win = 6
@@ -9,8 +9,8 @@
 """
 
 """
-If I was smart, i would use a hashmap. but i read somewhere to use the first 
-method that comes to mind first. unfortunately for my dumbass, its a million
+If I was smart, i would use a hashmap. but i read somewhere to use the 
+method that comes to mind first. unfortunately for me, its a million
 if statements. but i do plan on going back to creating a more efficient
 algorithm. 
 could also use enums!!!!
@@ -49,6 +49,7 @@ A B WIN 8 points
 A C LOSS 3 points
 """
 
+# PART I
 """
 y this no work. my output for pointCounter = 0
 for loop for array fileWithOutLines (this is correct. inputs are formatted correctly. line 32 shows inputs)
@@ -60,28 +61,66 @@ else:
 it still failed.
 dont tell me tho. i just showing you for funsies. ill figure it out in the morning
 """
+
+'''
 for index in fileWithOutLines:
     if index.startswith('C'):
-        if index.endswith('A'):
-            pointCounter += 7
-        elif index.endswith('B'):
-            pointCounter += 2
-        elif index.endswith('C'):
-            pointCounter += 6
+        if index.endswith('X'):
+            pointCounter = pointCounter + 7
+        elif index.endswith('Y'):
+            pointCounter = pointCounter + 2
+        elif index.endswith('Z'):
+            pointCounter = pointCounter + 6
     elif index.startswith('B'):
-        if index.endswith('A'):
-            pointCounter += 1
-        elif index.endswith('B'):
-            pointCounter += 5
-        elif index.endswith('C'):
-            pointCounter += 9
+        if index.endswith('X'):
+            pointCounter = pointCounter + 1
+        elif index.endswith('Y'):
+            pointCounter = pointCounter + 5
+        elif index.endswith('Z'):
+            pointCounter = pointCounter + 9
     elif index.startswith('A'):
-        if index.endswith('A'):
-            pointCounter += 4
-        elif index.endswith('B'):
-            pointCounter += 8
-        elif index.endswith('C'):
-            pointCounter += 3
+        if index.endswith('X'):
+            pointCounter = pointCounter + 4
+        elif index.endswith('Y'):
+            pointCounter = pointCounter + 8
+        elif index.endswith('Z'):
+            pointCounter = pointCounter + 3
+    else:
+        pass
+print(pointCounter)
+'''
+
+# PART II
+"""
+X = NEED TO LOSE
+Y = DRAW
+Z = NEED TO WIN
+"""
+# A = Rock 1
+# B = Paper 2
+# C = Scissors 3
+for index in fileWithOutLines:
+    if index.startswith('C'):
+        if index.endswith('X'):
+            pointCounter = pointCounter + 2
+        elif index.endswith('Y'):
+            pointCounter = pointCounter + 6
+        elif index.endswith('Z'):
+            pointCounter = pointCounter + 7
+    elif index.startswith('B'):
+        if index.endswith('X'):
+            pointCounter = pointCounter + 1
+        elif index.endswith('Y'):
+            pointCounter = pointCounter + 5
+        elif index.endswith('Z'):
+            pointCounter = pointCounter + 9
+    elif index.startswith('A'):
+        if index.endswith('X'):
+            pointCounter = pointCounter + 3
+        elif index.endswith('Y'):
+            pointCounter = pointCounter + 4
+        elif index.endswith('Z'):
+            pointCounter = pointCounter + 8
     else:
         pass
 print(pointCounter)
