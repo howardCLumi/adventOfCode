@@ -16,6 +16,7 @@ algorithm.
 could also use enums!!!!
 could represent rock paper scissors as bits
 rock paper scissors (0, 1, -1)
+use cases
 """
 
 #Points counter
