@@ -1,9 +1,6 @@
 with open("dayOneInputs.txt", "r") as input:
     lines = input.readlines()
 
-
-
-
 calories = []
 counter = 0
 for line in lines:

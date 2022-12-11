@@ -51,6 +51,7 @@ A C LOSS 3 points
 
 # PART I
 """
+edit: it works now. I read my inputs as A B C instead of X Y Z
 y this no work. my output for pointCounter = 0
 for loop for array fileWithOutLines (this is correct. inputs are formatted correctly. line 32 shows inputs)
 if first index starts with C, it will then check for what it ends with and it will count the amount of points.
