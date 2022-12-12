@@ -22,15 +22,14 @@ please refer to terminal.txt to see my masterful ability to match letters and as
 """
 
 def findPrioritySum(itemType):
-    prioritySum = 0
+
     I_MAKE_DA_RULES = [" ", "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", 
     "s", "t", "u", "v", "w", "x", "y", "z", "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", 
     "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"]
 
     for i in I_MAKE_DA_RULES:
         if itemType == i:
-            prioritySum += I_MAKE_DA_RULES.index(i)
-            return prioritySum
+            return I_MAKE_DA_RULES.index(i)
 
 def commonItem(itemOne, itemTwo):
 
@@ -41,8 +40,7 @@ def commonItem(itemOne, itemTwo):
             if i == y:
                 print("found the match! its " + i)
                 itemType = i
-                print(findPrioritySum(itemType))
-                return
+                return findPrioritySum(itemType)
 
     """
     i tried to use dictionarys but i couldnt figure out how to compare the value 2 in key 1 to value 
@@ -70,13 +68,14 @@ def commonItem(itemOne, itemTwo):
 
 def splitItem(lines):
 
+    prioritySum = 0
+
     for line in lines:
         line.strip()
         itemOne, itemTwo = line[:len(line)//2], line[len(line)//2:]
-        #print(itemOne + ' ' + itemTwo)
-        #print(type(itemOne))
-        commonItem(itemOne, itemTwo)
+        prioritySum += commonItem(itemOne, itemTwo)
 
+    print(prioritySum)
 
 def getResults(lines):
 
