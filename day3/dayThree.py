@@ -17,6 +17,8 @@ global prioritySum
 IT WONT LET ME SET IT EQUAL TO 0 AND WHEN I TRY USING IT IN LOCAL FUNCTIONS, IT GIVES ME THE
 unrecongizable bs. 
 
+please refer to terminal.txt to see my masterful ability to match letters and assign them points.
+
 """
 
 def findPrioritySum(itemType):
