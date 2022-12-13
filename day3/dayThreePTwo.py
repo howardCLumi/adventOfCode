@@ -9,9 +9,7 @@ def findPrioritySum(itemType):
         if itemType == i:
             return I_MAKE_DA_RULES.index(i)
 
-def commonItem(itemOne, itemTwo):
-
-    itemType = '' #for sake of readability. i know i can just plug in i to findPrioritySum() function
+def commonItem(elf):
     
     for i in itemOne:
         for y in itemTwo:
@@ -20,21 +18,30 @@ def commonItem(itemOne, itemTwo):
                 itemType = i
                 return findPrioritySum(itemType)
 
-def splitItem(lines):
+def splitElves(lines):
 
-    prioritySum = 0
+    iterationCounter = 0
+    elfCounter = 0
+    elf = ' '
+    elf1 = set()
+    elf2 = set()
 
     for line in lines:
-        line.strip()
-        itemOne, itemTwo = line[:len(line)//2], line[len(line)//2:]
-        prioritySum += commonItem(itemOne, itemTwo)
+        line = line.strip()
+        iterationCounter += 1
+        elfCounter += 1
+        elf[elfCounter] = line
+        print("this is elf {}".format(elfCounter) + " items: " + elf[elfCounter])
 
-    print(prioritySum)
+        if iterationCounter % 3 == 0:
+            elfCounter = 0
+            iterationCounter = 0
+            commonItem(elf)
+
 
 def getResults(lines):
-
     return (
-        splitItem(lines)
+        splitElves(lines)
     )
 
 #driver program???
