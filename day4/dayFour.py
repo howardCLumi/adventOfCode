@@ -9,7 +9,11 @@ def get_sorted_list(lines):
     """
     HOW AM I GOING TO SORT THIS LIST WTF
     update:
-    i took a single line and was able to 
+    i took a single line and was able to create 2 elves and give them their schedule. (issues with 2nd elf)
+    TODO:
+    i can either create a million elves be more memory efficeint by
+    creating 2 elfs, adding their schedules to a master array and then creating over those 2 elfs and repeat.
+    sort the array by their X value. oh god i can already think of a million issues. i sleep good bye
     """
     for i, line in enumerate(lines):
         line.split
