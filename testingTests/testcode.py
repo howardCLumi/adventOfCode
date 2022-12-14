@@ -1,14 +1,33 @@
-set1 = set()
-set2 = set()
 
 with open("dayThreeInputs.txt", "r") as input:
     lines = input.readlines()
 
-i = 1
+iterationCounter = 0
+elfCounter = 0
+elf0 = set()
+elf1 = set()
+elf2 = set()
+
 for line in lines:
-        #set[i] = line.strip()
-        if i % 3 == 0:
-            i = 1
-        print(set[i])
-        i += 1
-    
+    line = line.strip()
+
+for elfCounter in range(10):
+
+    if elfCounter % 3 == 1:
+        print(elfCounter)
+        elfCounter = 0
+    else:
+        print(elfCounter)
+
+"""
+    if elfCounter % 3 == 0:
+            elfCounter = 0
+
+    for char in line:
+
+        print(char)
+        elf[elfCounter] = char
+
+    #print("this is elf {}".format(elfCounter) + " items: " + elf[elfCounter])
+    elfCounter += 1
+"""

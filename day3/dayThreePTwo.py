@@ -9,36 +9,30 @@ def findPrioritySum(itemType):
         if itemType == i:
             return I_MAKE_DA_RULES.index(i)
 
-def commonItem(elf):
-    
-    for i in itemOne:
-        for y in itemTwo:
-            if i == y:
-                print("found the match! its " + i)
-                itemType = i
-                return findPrioritySum(itemType)
-
 def splitElves(lines):
 
-    iterationCounter = 0
-    elfCounter = 0
-    elf = ' '
+    
+    prioritySum = 0
+    elf0 = set()
     elf1 = set()
-    elf2 = set()
 
-    for line in lines:
-        line = line.strip()
-        iterationCounter += 1
-        elfCounter += 1
-        elf[elfCounter] = line
-        print("this is elf {}".format(elfCounter) + " items: " + elf[elfCounter])
+    for i, line in enumerate(lines):
+        line = line.strip()  
+        print(line)
 
-        if iterationCounter % 3 == 0:
-            elfCounter = 0
-            iterationCounter = 0
-            commonItem(elf)
+        if i % 3 == 0:
+            elf0 = set(list(line))
+        if i % 3 == 1:
+            elf1 = set(list(line))
+        if i % 3 == 2:
+            #print(x)
+            for x in line:
+                if x in elf1 and x in elf0:
+                    prioritySum += findPrioritySum(x)
+                    break
 
-
+    return prioritySum
+                    
 def getResults(lines):
     return (
         splitElves(lines)
@@ -48,4 +42,4 @@ def getResults(lines):
 with open("dayThreeInputs.txt", "r") as input:
     lines = input.readlines()
 
-getResults(lines)
+print(getResults(lines))
