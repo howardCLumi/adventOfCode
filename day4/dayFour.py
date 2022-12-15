@@ -1,11 +1,15 @@
+def get_contained_pairs(elf_dictionary):
+    print("hi")
+
 def get_sorted_list(lines):
     tuple = ()
     x = 0
     y = 0
     elfString1 = ''
     elfString2 = ''
-    elf1 = set()
-    elf2 = set()
+    elf_dictionary = {}
+    cheating = len(lines)
+    lumi = int(cheating)
     """
     HOW AM I GOING TO SORT THIS LIST WTF
     update:
@@ -14,8 +18,11 @@ def get_sorted_list(lines):
     i can either create a million elves be more memory efficeint by
     creating 2 elfs, adding their schedules to a master array and then creating over those 2 elfs and repeat.
     sort the array by their X value. oh god i can already think of a million issues. i sleep good bye
+    the next day me:
+    fine ill use a dictionary
     """
     for i, line in enumerate(lines):
+        line = line.strip()
         line.split
         elfString1, elfString2 = line[:len(line)//2], line[len(line)//2:].replace(',', '')
         tuple = elfString1.partition('-')
@@ -23,25 +30,15 @@ def get_sorted_list(lines):
         y = int(tuple[2])
 
         for loop in range(x, y+1):
-            elf1.add(loop)
-
-        print(elf1)
+            elf_dictionary.setdefault(i, []).append(loop)
 
         tuple = elfString2.partition('-')
         x = int(tuple[0])
         y = int(tuple[2])
 
-        for loop in range(x, y):
-            elf2.add(loop)
-        
-        print(elf2)
-
-# Convert a string to an integer
-
-#string = "1234"
-#number = int(string)
-#print(number)  # Output: 1234
-
+        for loop in range(x, y+1):
+            elf_dictionary.setdefault(i+lumi, []).append(loop)
+    get_contained_pairs(elf_dictionary)
 
 def get_elves_and_Schedule(lines):
 
@@ -86,42 +83,10 @@ we sort by x, so we check by x if that makes sense
 much better time complexity! lets do that
 """
 
-
-
-
 def main():
     with open("dayFourInputs.txt", "r") as input:
         lines = input.readlines()
     get_elves_and_Schedule(lines)
     
-#if __name__ == '__main__':
-    #main()
-
-string = "2-4,6-8"
-tuple = ()
-x = 0
-y = 0
-elfString1 = ''
-elfString2 = ''
-elf1 = set()
-elf2 = set()
-
-elfString1, elfString2 = string[:len(string)//2], string[len(string)//2:].replace(',', '')
-tuple = elfString1.partition('-')
-x = int(tuple[0])
-y = int(tuple[2])
-
-for loop in range(x, y+1):
-     print(loop)
-     elf1.add(loop)
-print(elf1)
-
-tuple = elfString2.partition('-')
-x = int(tuple[0])
-y = int(tuple[2])
-
-for loop in range(x, y+1):
-    print(loop)
-    elf2.add(loop)
-
-print(elf2)
+if __name__ == '__main__':
+    main()
